@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 
 class Controller {
@@ -15,10 +16,15 @@ class Controller {
     }
 
   }
-  void formValidar() {
+  void formValidar(BuildContext context) {
     print("aaaaaaaaaaaa");
     if(formKey.currentState.validate()) {
-
+      showDialog(
+        context:  context,
+        builder:  (BuildContext context) {
+          return AlertDialog(title: Text("O resultado é"),);
+        },
+      );
     }
   }
 

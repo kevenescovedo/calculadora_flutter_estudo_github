@@ -63,7 +63,7 @@ class _CalculatorState extends State<Calculator> {
                child: Center(child:Text("Calcular", style: TextStyle(color: Colors.white))),
 
              ),
-             onTap: controller.formValidar,
+             onTap:(){ controller.formValidar(context);},
            ),
          )
 
