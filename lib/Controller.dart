@@ -9,12 +9,23 @@ class Controller {
 
   String validator(String number) {
     if(number == null || number == '') {
-      return 'Digite um número válido';
+      return 'Campo está vazio, por favor digite um valor';
+    }
+    else if(!isNumericUsingRegularExpression(number)) {
+      return 'Campo inválido';
     }
    else {
      return null;
     }
 
+
+
+  }
+  bool isNumericUsingRegularExpression(String string) {
+    final numericRegex =
+    RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
+
+    return numericRegex.hasMatch(string);
   }
   void formValidar(BuildContext context) {
     print("aaaaaaaaaaaa");

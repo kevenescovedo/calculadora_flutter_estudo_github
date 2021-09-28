@@ -28,7 +28,7 @@ class _CalculatorState extends State<Calculator> {
                   controller: controller.controllerText1,
                     validator: controller.validator,
                     /*controller: _controller */
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
                         hintText: "Digite o primeiro número:",
@@ -39,7 +39,7 @@ class _CalculatorState extends State<Calculator> {
                     controller: controller.controllerText2,
                     validator: controller.validator,
                   /*controller: _controller */
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
 
                     decoration: InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black),),
