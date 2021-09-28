@@ -21,6 +21,9 @@ class Controller {
 
 
   }
+  soma(double n1, double n2){
+    return n1 + n2;
+  }
   bool isNumericUsingRegularExpression(String string) {
     final numericRegex =
     RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
@@ -33,7 +36,7 @@ class Controller {
       showDialog(
         context:  context,
         builder:  (BuildContext context) {
-          return AlertDialog(title: Text("O resultado é"),);
+          return AlertDialog(title: Text("o resultado é ${soma(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),);
         },
       );
     }
