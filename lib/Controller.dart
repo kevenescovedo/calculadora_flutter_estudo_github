@@ -28,7 +28,7 @@ class Controller {
     return n1 * n2;
   }
  
-  subtrai(n1, n2) {
+  subtrai(n1, n2, [int n3]) {
     return n1 - n2;
   }
   bool isNumericUsingRegularExpression(String string) {
