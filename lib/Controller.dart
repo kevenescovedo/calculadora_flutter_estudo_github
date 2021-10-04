@@ -24,6 +24,10 @@ class Controller {
     return n1 / n2;
   }
 
+  multiplica(double n1, double n2) {
+    return n1 * n2;
+  }
+
   bool isNumericUsingRegularExpression(String string) {
     final numericRegex = RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
 
@@ -38,7 +42,7 @@ class Controller {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(
-                "O resultado é ${dividi(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),
+                "O resultado é ${multiplica(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),
           );
         },
       );
