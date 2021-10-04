@@ -27,7 +27,10 @@ class Controller {
   multiplica(double n1, double n2) {
     return n1 * n2;
   }
-
+ 
+  subtrai(n1, n2) {
+    return n1 - n2;
+  }
   bool isNumericUsingRegularExpression(String string) {
     final numericRegex = RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
 
@@ -38,12 +41,13 @@ class Controller {
     print("aaaaaaaaaaaa");
     if (formKey.currentState.validate()) {
       showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text(
-                "O resultado é ${multiplica(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),
+
+        context:  context,
+        builder:  (BuildContext context) {
+          return AlertDialog(title: Text("O resultado é ${subtrai(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),
+    
           );
+
         },
       );
     }
