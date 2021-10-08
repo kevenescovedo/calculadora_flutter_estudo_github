@@ -20,15 +20,15 @@ class Controller {
     return n1 + n2;
   }
 
-  dividi(double n1, double n2) {
+  double dividi(double n1, double n2) {
     return n1 / n2;
   }
 
-  multiplica(double n1, double n2) {
+  double multiplica(double n1, double n2) {
     return n1 * n2;
   }
- 
-  subtrai(n1, n2, [int n3]) {
+
+  double subtrai(n1, n2, [int n3]) {
     return n1 - n2;
   }
 
@@ -38,15 +38,33 @@ class Controller {
     return numericRegex.hasMatch(string);
   }
 
-  void formValidar(BuildContext context) {
+  void formValidar(BuildContext context, String sinal) {
     print("aaaaaaaaaaaa");
     if (formKey.currentState.validate()) {
+      String number = '0';
+      if (sinal == "*") {
+        number = multiplica(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+      } else if (sinal == "/") {
+        number = dividi(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+      } else if (sinal == "-") {
+        number = subtrai(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+        ;
+      } else if (sinal == "+") {
+        number = soma(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+      }
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(
-                "O resultado é ${subtrai(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),
+            title: Text("O resultado é $number"),
           );
         },
       );
