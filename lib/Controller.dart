@@ -5,6 +5,7 @@ class Controller {
   TextEditingController controllerText1 = TextEditingController();
   TextEditingController controllerText2 = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  ValueNotifier<String> operatorNofitifer = ValueNotifier<String>("soma");
 
   String validator(String number) {
     if (number == null || number == '') {
@@ -20,15 +21,15 @@ class Controller {
     return n1 + n2;
   }
 
-  dividi(double n1, double n2) {
+  double dividi(double n1, double n2) {
     return n1 / n2;
   }
 
-  multiplica(double n1, double n2) {
+  double multiplica(double n1, double n2) {
     return n1 * n2;
   }
- 
-  subtrai(n1, n2, [int n3]) {
+
+  double subtrai(n1, n2, [int n3]) {
     return n1 - n2;
   }
 
@@ -39,14 +40,33 @@ class Controller {
   }
 
   void formValidar(BuildContext context) {
+    String sinal = operatorNofitifer.value;
     print("aaaaaaaaaaaa");
     if (formKey.currentState.validate()) {
+      String number = '0';
+      if (sinal == "multiplicação") {
+        number = multiplica(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+      } else if (sinal == "divisão") {
+        number = dividi(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+      } else if (sinal == "subtração") {
+        number = subtrai(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+        ;
+      } else if (sinal == "soma") {
+        number = soma(double.parse(controllerText1.text),
+                double.parse(controllerText2.text))
+            .toString();
+      }
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(
-                "O resultado é ${subtrai(double.parse(controllerText1.text), double.parse(controllerText2.text))}"),
+            title: Text("O resultado é $number"),
           );
         },
       );
