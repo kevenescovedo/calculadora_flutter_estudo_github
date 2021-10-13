@@ -5,7 +5,7 @@ class ButtonOperator extends StatefulWidget {
   Controller controller;
   String sinal;
   String texto;
-  ButtonOperator({this.controller, this.sinal, this.texto});
+  ButtonOperator({this.controller,  this.texto});
 
   @override
   _ButtonOperatorState createState() => _ButtonOperatorState();
@@ -28,7 +28,7 @@ class _ButtonOperatorState extends State<ButtonOperator> {
                   style: TextStyle(color: Colors.white))),
         ),
         onTap: () {
-          widget.controller.formValidar(context, widget.sinal);
+          widget.controller.formValidar(context);
         },
       ),
     );

@@ -2,6 +2,7 @@ import 'package:calculadora/Button.dart';
 import 'package:calculadora/Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter_dropdown/flutter_dropdown.dart';
 
 class Calculator extends StatefulWidget {
   @override
@@ -48,7 +49,21 @@ class _CalculatorState extends State<Calculator> {
                   SizedBox(
                     height: 30,
                   ),
+                  ValueListenableBuilder(
+                      valueListenable: controller.operatorNofitifer,
+                      builder: (context, value, _) {
+                        return DropDown(
+                          items: ["+", "-", "x", '/'],
+                          hint: Text(value),
+                          onChanged: (value) {
+                            controller.operatorNofitifer.value = value;
+                          },
+                        );
+                      }),
 
+                  SizedBox(
+                    height: 30,
+                  ),
                   TextFormField(
                       controller: controller.controllerText2,
                       validator: controller.validator,
@@ -66,23 +81,7 @@ class _CalculatorState extends State<Calculator> {
               ),
             ),
             ButtonOperator(
-              texto: '+',
-              sinal: '+',
-              controller: controller,
-            ),
-            ButtonOperator(
-              texto: '-',
-              sinal: '-',
-              controller: controller,
-            ),
-            ButtonOperator(
-              texto: 'X',
-              sinal: '*',
-              controller: controller,
-            ),
-            ButtonOperator(
-              texto: '/',
-              sinal: '/',
+              texto: '=',
               controller: controller,
             ),
           ],
