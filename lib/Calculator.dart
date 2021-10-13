@@ -85,10 +85,14 @@ class _CalculatorState extends State<Calculator> {
                 ],
               ),
             ),
-            ButtonOperator(
-              texto: '=',
-              controller: controller,
-            ),
+            RaisedButton(
+              padding: EdgeInsets.only(top: 30, bottom: 30),
+              color: Colors.purple,
+              onPressed: () {
+                controller.formValidar(context);
+              },
+              child: Text("="),
+            )
           ],
         ),
       ),
