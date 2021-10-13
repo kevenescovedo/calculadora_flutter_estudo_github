@@ -44,7 +44,7 @@ class Controller {
     print("aaaaaaaaaaaa");
     if (formKey.currentState.validate()) {
       String number = '0';
-      if (sinal == "multiplicação") {
+      if (sinal == "multiplicaçãoo") {
         number = multiplica(double.parse(controllerText1.text),
                 double.parse(controllerText2.text))
             .toString();
