@@ -5,7 +5,7 @@ class Controller {
   TextEditingController controllerText1 = TextEditingController();
   TextEditingController controllerText2 = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  ValueNotifier<String> operatorNofitifer = ValueNotifier<String>("+");
+  ValueNotifier<String> operatorNofitifer = ValueNotifier<String>("soma");
 
   String validator(String number) {
     if (number == null || number == '') {
@@ -44,20 +44,20 @@ class Controller {
     print("aaaaaaaaaaaa");
     if (formKey.currentState.validate()) {
       String number = '0';
-      if (sinal == "*") {
+      if (sinal == "multiplicação") {
         number = multiplica(double.parse(controllerText1.text),
                 double.parse(controllerText2.text))
             .toString();
-      } else if (sinal == "/") {
+      } else if (sinal == "divisão") {
         number = dividi(double.parse(controllerText1.text),
                 double.parse(controllerText2.text))
             .toString();
-      } else if (sinal == "-") {
+      } else if (sinal == "subtração") {
         number = subtrai(double.parse(controllerText1.text),
                 double.parse(controllerText2.text))
             .toString();
         ;
-      } else if (sinal == "+") {
+      } else if (sinal == "soma") {
         number = soma(double.parse(controllerText1.text),
                 double.parse(controllerText2.text))
             .toString();

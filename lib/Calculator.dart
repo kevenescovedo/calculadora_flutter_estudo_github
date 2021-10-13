@@ -53,7 +53,12 @@ class _CalculatorState extends State<Calculator> {
                       valueListenable: controller.operatorNofitifer,
                       builder: (context, value, _) {
                         return DropDown(
-                          items: ["+", "-", "x", '/'],
+                          items: [
+                            "soma",
+                            "multiplicação",
+                            "subtração",
+                            'divisão'
+                          ],
                           hint: Text(value),
                           onChanged: (value) {
                             controller.operatorNofitifer.value = value;
