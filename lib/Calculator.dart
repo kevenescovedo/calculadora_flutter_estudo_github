@@ -2,7 +2,6 @@ import 'package:calculadora/Button.dart';
 import 'package:calculadora/Controller.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:multi_select_item/multi_select_item.dart';
 
 class Calculator extends StatefulWidget {
   @override
